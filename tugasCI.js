@@ -2,24 +2,24 @@
 
 //palindrom
 let cekPalindrom = (input) => {
-       let cek = input.split('').reverse().join('');
+       let cek = input.toLowerCase().split('').reverse().join('');
 
-       if ( input == cek){
+       if ( input.toLowerCase() == cek){
               console.log(`${input} adalah palindrom`)
        } else{
               console.log(`${input} bukan palindrom`)
        } 
 }
 
-cekPalindrom('malam');
+cekPalindrom('Malam');
 cekPalindrom('siang');
-cekPalindrom('ini');
+cekPalindrom('Ini');
 cekPalindrom('tidak');
 
 
 //reverse Words
 let reverseWords = (kata) => {
-       let inputKata = kata.split(' ').reverse().join(' ');
+       let inputKata = kata.toLowerCase().split(' ').reverse().join(' ');
        console.log(inputKata);
 }
 
@@ -55,7 +55,7 @@ let AplikasiPijarFood = (harga,voucer,jarak,pajak) => {
        }
        
     //jarak (biaya Antar)   
-       if (jarak === 2) {
+       if (jarak <= 2) {
               var hargaJarak = 5000
               console.log(`jarak : ${hargaJarak}`)
        } else if(jarak > 2){
@@ -95,16 +95,12 @@ AplikasiPijarFood(75000,'PIJAR FOOD',5,true)
 
 // =====task3=====
 
-let angka = (number) => {
-    let ubah = number.split('0')
-    let satu = ubah.slice(0,1).join().split('').sort().map(Number).filter(x => x)
-    let dua = ubah.slice(1).join().split('').sort().map(Number).filter(x => x)
-    let tiga = ubah.slice(2).join().split('').sort().map(Number).filter(x => x)
-    let gabung = [...satu,...dua,...tiga].join()
-    console.log(gabung)
+let divideAndSort = (number) => {
+    let ubah = number.toString().split('0').map((item) => item.split('').sort().join('')).join('');
+    console.log(parseInt(ubah))
  
   }
-  angka('divideAndSort(5956560159466056)')
+  divideAndSort(5956560159466056);
 
 
 
